@@ -1,6 +1,6 @@
 <!--pages/goodsSell/goodSell.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="content">信工二手数码市场</view>
+  <view slot="content">我卖出的宝贝</view>
 </cu-custom>
 <scroll-view bindscrolltolower="scrollListen" scroll-y enable-flex class="orders" wx:if="{{order.length > 0}}">
   <!-- 订单 -->

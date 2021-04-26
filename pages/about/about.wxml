@@ -53,7 +53,7 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about" hover-class="none">
+      <navigator class="content" url="/pages/myPosted/myPosted" hover-class="none">
         <image src="../img/mai.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">我发布的</text>
       </navigator>

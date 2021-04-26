@@ -1,0 +1,39 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">我发布的宝贝</view>
+</cu-custom>
+<scroll-view bindscrolltolower="scrollListen" scroll-y enable-flex class="orders" wx:if="{{goodsList.length > 0}}">
+  <!-- 订单 -->
+  <view class="order" wx:for="{{goodsList}}" wx:key="{{item.id}}">
+
+    <view class="header">
+      <view class="order-id">商品编号：{{item.goodsId}}</view>
+      <view class="text-orange">我发布的第{{index+1}}件宝贝</view>
+    </view>
+
+    <view class="product" data-value="{{item}}" bindtap="toOrderDetail">
+      <image class="img" src="{{item.goodsImg}}"></image>
+      <view class="info">
+        <text class="title">{{item.goodsTitle}}</text>
+        <text class="specDesc">{{item.descrption}}</text>
+      </view>
+
+    </view>
+    <view class="foot">
+      <view class="text-gray" wx:if="{{item.isShow == 1}}">
+        <text>已下架</text>
+      </view>
+      <view class="text-gray" wx:else>
+        <text>未下架</text>
+      </view>
+      <view class="btns">
+        <van-button data-value="{{item}}" data-index="{{index}}" plain type="default" size="small" class="btn"
+          bindtap="OffShelf" data-orderId="{{item.id}}" wx:if="{{item.isShow == 0}}">下架</van-button>
+          <van-button data-value="{{item}}" data-index="{{index}}" plain type="default" size="small" class="btn"
+          bindtap="OffShelf" data-orderId="{{item.id}}" wx:if="{{item.isShow == 1}}">上架</van-button>
+      
+        <van-button data-value="{{item}}" data-index="{{index}}" plain type="default" size="small" class="btn"
+          bindtap="editGoods">编辑</van-button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,6 +1,6 @@
 <!--pages/ucenter/order/order.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="content">信工二手数码市场</view>
+  <view slot="content">我买到的宝贝</view>
 </cu-custom>
 <van-tabs color="#b4282d" active="{{active}}" tab-class="tab" swipe-threshold="5" swipeable bind:change="changeTab" class="nav">
   <van-tab title="全部" name="00"></van-tab>

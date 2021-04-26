@@ -16,7 +16,8 @@
     "pages/password/pay",
     "pages/goodsHelp/helpList/helpList",
     "pages/about/center/index",
-    "pages/goodsSell/goodSell"
+    "pages/goodsSell/goodSell",
+    "pages/myPosted/myPosted"
   ],
   "permission": {
     "scope.userLocation": {
