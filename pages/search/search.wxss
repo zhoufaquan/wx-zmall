@@ -1,0 +1,49 @@
+/* pages/search/search.wxss */
+
+
+.zmall-home-search-tab {
+  margin-bottom: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+
+.van-grid-item {
+  width: auto !important;
+  float: none !important;
+}
+
+.zmall-goods-info {
+  width: 100%;
+}
+
+.zmall-goods-desc {
+  background: var(--ghostWhite);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.zmall-goods-desc .zmall-goods-title {
+  width: 50%;
+  padding-left: 10px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.zmall-goods-desc .zmall-goods-price {
+  padding-right: 1px;
+  float: right;
+}
+.van-grid{
+  column-count: 2; 
+  column-gap: 12px;
+}
+.van-grid-item{
+  margin-bottom: 20px;
+  break-inside: avoid; 
+}

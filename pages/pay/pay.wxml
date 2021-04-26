@@ -1,0 +1,31 @@
+<!--pages/pay/pay.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<form bindsubmit="submitOrder">
+<van-card
+  num="1"
+  price="{{goodsPrice}}"
+  title="{{goodsTitle}}"
+  desc="高配版"
+  thumb="{{ goodsImg }}"
+/>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+<view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../address/address">
+        <image src="../img/location.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">收货地址</text>
+      </navigator>
+    </view>
+    <view class='container'>
+  <view class="item" wx:if="{{address!=''}}">
+    <text class='address'>{{address.address}}</text>
+    <text class='name'>{{address.name}}</text>
+    <text class='tel'>{{address.phone}}</text>
+  </view>
+</view>
+  </view>
+  <view class="padding flex flex-direction">
+  <button class="cu-btn bg-gradual-blue margin-tb-sm lg" form-type='submit'>提交订单</button>
+</view>
+</form>

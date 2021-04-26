@@ -1,0 +1,23 @@
+<!--pages/search/search.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<view class="zmall-home-search-tab"
+    style="top: {{customBarHeight + 'px'}};">
+<van-search
+  value="{{ value }}" 
+  input-align="center"
+  placeholder="请输入搜索关键词"
+  shape="round"
+  bind:search="onSearch"
+/>
+</view>
+<van-grid-item custom-class="radius shadow" use-slot wx:for="{{goods}}" link-type="navigateTo" url="/pages/goods/goods?goodsId={{item.goodsId}}">
+      <view class="zmall-goods-info">
+        <image src="{{item.goodsImg}}" mode="widthFix" style="margin-top: 20px"></image>
+        <view class="zmall-goods-desc">
+          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+        </view>
+      </view>
+    </van-grid-item>

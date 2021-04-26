@@ -1,0 +1,123 @@
+<!--pages/about/about.wxml-->
+<view class="zmall-top bg-gradual-blue ZCenter-bg">
+  <view class="cu-avatar round ZCenter-avatar "
+    style="background-image:url({{userInfo.avatarUrl}});"></view>
+  <view class="text-lg">{{userInfo.nickName}}</view>
+  <view class="margin-top-sm">
+    <text>积分:999</text>
+  </view>
+  <image src="https://yokefellow.cn/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+<view class="padding flex text-center text-grey bg-white shadow-warp">
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-orange">{{countLike}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-appreciatefill"></text> 点赞</view>
+  </view>
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-blue">{{countCollect}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-favorfill"></text> 收藏</view>
+  </view>
+  <view class="flex flex-sub flex-direction">
+    <view class="text-xxl text-green">98.99</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-moneybagfill"></text> 钱包</view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/center/index" hover-class="none">
+        <image src="../img/zhuanrang.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">信息修改</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/goodsHelp/helpList/helpList" hover-class="none">
+        <image src="../img/qiugou.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">我求购的</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/order/order" hover-class="none">
+        <image src="../img/dingdan.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">我的订单</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/goodsSell/goodSell" hover-class="none">
+        <image src="../img/paimai.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">我卖出的</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <image src="../img/mai.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">我发布的</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/address/address" hover-class="none">
+        <image src="../img/location.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">地址管理</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <image src="../img/jifen.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">积分明细</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <image src="../img/help.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">使用帮助</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-bar-outside">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action {{currentNavBarName == 'home' ?  'text-blue': 'text-gray'}}" bindtap="changeNavBar"
+      data-name="home">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+
+    <view class="action add-action {{currentNavBarName == 'publish' ?  'text-blue': 'text-gray'}}"
+      bindtap="changeNavBar" data-name="publish">
+      <button class="cu-btn cuIcon-add shadow {{currentNavBarName == 'publish' ?  'bg-gradual-blue': ''}}"
+        bindtap="showModal" data-target="bottomModal"></button>
+      发布
+    </view>
+
+    <view class="action {{currentNavBarName == 'about' ?  'text-blue': 'text-gray'}}" bindtap="changeNavBar"
+      data-name="about">
+      <view class="cuIcon-myfill">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
+    </view>
+  </view>
+</view>
+<!-- 模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+    <view class="zmall-modal-content">
+      <view class="idle-transfer zmall-model-item text-blue" data-name="idle-transfer" bindtap="onSelectPublish">
+        <view class="cuIcon-presentfill">
+        </view>
+        <text>闲置转让</text>
+      </view>
+      <view class="buying-info zmall-model-item text-purple" data-name="buying-info" bindtap="onSelectPublish">
+        <view class="cuIcon-communityfill">
+        </view>
+        <text>求购信息</text>
+      </view>
+    </view>
+  </view>
+</view>

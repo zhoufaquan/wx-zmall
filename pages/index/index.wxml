@@ -1,0 +1,12 @@
+<view class="container1">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button class="bg-gradual-blue" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 欢迎使用信工二手市场 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>

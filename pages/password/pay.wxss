@@ -1,0 +1,25 @@
+.content{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 200rpx;
+}
+.iptbox{
+  width: 80rpx;
+  height: 80rpx;
+  border:1rpx solid #ddd;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.ipt{
+  width: 0;
+  height: 0;
+}
+.btn-area{
+  width: 80%;
+  background-color: orange;
+  color:white;
+}

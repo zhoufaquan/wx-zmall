@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/home/address/address",
+    "pages/publish/publish",
+    "pages/chat/chat",
+    "pages/order/order",
+    "pages/pay/pay",
+    "pages/goods/goods",
+    "pages/about/about",
+    "pages/goodsHelp/goodsHelp",
+    "pages/pay-result/pay-result",
+    "pages/search/search",
+    "pages/address/add-address/add-address",
+    "pages/password/pay",
+    "pages/goodsHelp/helpList/helpList",
+    "pages/about/center/index",
+    "pages/goodsSell/goodSell"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "van-button": "./miniprogram_npm/@vant/weapp/button/index",
+    "van-tabbar": "./miniprogram_npm/@vant/weapp/tabbar/index",
+    "van-tabbar-item": "./miniprogram_npm/@vant/weapp/tabbar-item/index",
+    "van-notice-bar": "./miniprogram_npm/@vant/weapp/notice-bar/index",
+    "van-picker": "./miniprogram_npm/@vant/weapp/picker/index",
+    "van-search": "./miniprogram_npm/@vant/weapp/search/index",
+    "van-tab": "./miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "./miniprogram_npm/@vant/weapp/tabs/index",
+    "van-grid": "./miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "./miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-icon": "./miniprogram_npm/@vant/weapp/icon/index",
+    "cu-custom": "./colorui/components/cu-custom",
+    "van-popup": "./miniprogram_npm/@vant/weapp/popup/index",
+    "van-card": "./miniprogram_npm/@vant/weapp/card/index",
+    "van-divider": "./miniprogram_npm/@vant/weapp/divider/index",
+    "van-field": "./miniprogram_npm/@vant/weapp/field/index",
+    "van-toast": "./miniprogram_npm/@vant/weapp/toast/index",
+    "van-dialog": "./miniprogram_npm/@vant/weapp/dialog/index",
+    "wux-upload": "./miniprogram_npm/wux-weapp/upload/index",
+    "i-rate": "./miniprogram_npm/iview-weapp/rate/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

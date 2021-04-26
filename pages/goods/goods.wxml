@@ -1,0 +1,104 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<View class="zmall-bgColor">
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true"
+    autoplay="true" interval="5000" duration="500">
+    <swiper-item>
+      <image src="{{goods.goodsImg}}" mode="aspectFit"></image>
+    </swiper-item>
+  </swiper>
+  <van-card style="background-color:white" price="{{goods.goodsPrice}}" origin-price="10" title="{{goods.goodsTitle}}"
+    title-class="zmall-title" desc-class="zmall-desc" desc="{{goods.descrption}}">
+    <view slot="footer">
+        <view class="cu-capsule round" >
+          <view class="cu-tag bg-gray sm" bindtap="changeCollect">
+            <text class="{{ isCollect == 1 ? 'cuIcon-favorfill' : 'cuIcon-favor'}}"></text>
+          </view>
+          <view class="cu-tag   sm">
+           {{goods.gcollect}}
+          </view>
+        </view>
+        <view class="cu-capsule round">
+    <view class="cu-tag bg-gray sm" bindtap="changeAppreciate">
+      <text class="{{ isLike == 1 ? 'cuIcon-appreciatefill' : 'cuIcon-appreciate'}}"></text>
+    </view>
+    <view class="cu-tag  sm">
+      {{goods.glike}}  
+    </view>
+  </view>
+     
+    </view>
+  </van-card>
+  <van-divider dashed />
+  <view style="padding-left: 1em">
+    <view>成色:{{goods.goodsQuality}}
+      <van-divider dashed />
+    </view>
+    <view>品牌:{{goods.brandName}}
+      <van-divider dashed />
+    </view>
+
+    <view>电话:{{goods.userTelephone}}
+      <van-divider dashed />
+    </view>
+    <view>邮寄方式:线下面交
+      <van-divider dashed />
+    </view>
+
+  </view>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 留言列表
+    </view>
+  </view>
+  <view style="margin-bottom: calc(100rpx + env(safe-area-inset-bottom) / 2)">
+    <view class="cu-list menu-avatar" wx:for="{{commentList}}">
+
+      <view class="cu-item" wx:if="{{item.isShow == 0}}">
+        <view class="cu-avatar radius lg" style="background-image:url({{item.avatarUrl}});"></view>
+        <view class="content">
+          <view class="text-pink">
+            <text class="text-cut">{{item.nickName}}</text>
+          </view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">{{item.content}}</text>
+          </view>
+        </view>
+        <view class="action" style=" margin-right: 30px;">
+          <view class="text-gray">{{item.yearTime}}</view>
+          <view class="text-gray">{{item.dayTime}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</View>
+<view style="position:fixed;width:100%;bottom: 0;">
+  <view class="cu-bar bg-white tabbar border shop">
+    <view class="btn-group">
+      <button class="action" bindtap="changeChat">
+        <view class="cuIcon-service"></view> 聊天
+      </button>
+
+      <button class="action" bindtap="buyHome">
+        <view class="cuIcon-shop" bindtap="buyHome"></view>卖家主页
+      </button>
+
+
+      <button class="cu-btn bg-gradual-blue square shadow-blur" bindtap="CommodityMessage">留言</button>
+      <button class="cu-btn bg-gradual-blue square shadow-blur" bindtap="buyGoods">购买</button>
+    </view>
+  </view>
+</view>
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px" hidden="{{!show}}">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+  <input class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}"
+    maxlength="300" cursor-spacing="10" bindinput="messageInput" value="{{message}}"></input>
+  <view class="action">
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view>
+  <button class="cu-btn bg-gradual-blue shadow" bindtap="messageSend">发送</button>
+  <button class="cu-btn bg-gradual-blue shadow" style="margin-left: 5px" bindtap="messageCancel">取消</button>
+</view>

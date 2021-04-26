@@ -1,0 +1,63 @@
+<!--pages/ucenter/order/order.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<van-tabs color="#b4282d" active="{{active}}" tab-class="tab" swipe-threshold="5" swipeable bind:change="changeTab" class="nav">
+  <van-tab title="全部" name="00"></van-tab>
+  <van-tab title="待付款" name="10"></van-tab>
+  <van-tab title="待发货" name="20"></van-tab>
+  <van-tab title="待收货" name="21"></van-tab>
+  <van-tab title="待评价" name="31"></van-tab>
+</van-tabs>
+
+<!-- 加载中 -->
+<view wx:if="{{loading}}" class="loading-center">
+  <van-loading type="spinner" />
+</view>
+
+<!-- 无订单 -->
+<view class="no-order" wx:if="{{orderList.length == 0&&!loading}}">
+  <image class="img" src="/assets/noOrder.png"></image>
+  <view class="txt">还没有任何订单呢</view>
+</view>
+
+<!-- 订单列表 -->
+<scroll-view bindscrolltolower="scrollListen" scroll-y enable-flex class="orders" wx:if="{{orderList.length > 0&&!loading}}">
+  <view style="margin-top:108rpx"></view>
+  <!-- 订单 -->
+  <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class="header">
+      <view class="order-id">订单编号：{{item.orderSn}}</view>
+ 
+      <image wx:if="{{item.orderStatus==31&&item.payStatus==1}}" class="delete" src="/assets/delete.png" data-value="{{item}}" bindtap="deleteOrder"></image>
+      <view wx:if="{{item.orderStatus==10&&item.payStatus==0}}" class="cancel" data-value="{{item}}" data-index="{{index}}" bindtap="cancelOrder">取消订单</view>
+      <view wx:if="{{item.orderStatus==20&&item.payStatus==0}}">待发货</view>
+      <view wx:if="{{item.orderStatus==21&&item.payStatus==1}}">已发货</view>
+      <view wx:if="{{item.orderStatus==31&&item.payStatus==1}}">交易成功</view>
+    </view>
+
+    <view class="product" wx:for="{{item.productList}}" wx:key="{{product.id}}" wx:for-item="product" data-value="{{item}}" bindtap="toOrderDetail">
+      <image class="img" src="{{product.picUrl}}"></image>
+      <view class="info">
+        <text class="title">{{product.title}}</text>
+        <text class="specDesc">{{product.specDesc}}</text>
+      </view>
+    
+    </view>
+    <view class="foot">
+      <view class="money">
+        <text wx:if="{{item.orderStatus==10&&item.payStatus==0}}">应付：￥{{item.actualPrice}}</text>
+        <text wx:else>实付：￥{{item.actualPrice}}</text>
+      </view>
+      <view class="btns">
+        <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==10&&item.payStatus==0}}" color="#b4282d" size="small" class="btn" bindtap="toPay">去付款
+        </van-button>
+
+        <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==21&&item.payStatus==1}}" plain type="default" size="small" class="btn" bindtap="confirmReceive" data-orderId="{{item.id}}">确认收货</van-button>
+        <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==31&&item.payStatus==1}}" plain type="default" size="small" class="btn" bindtap="toComment">立即评价</van-button>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<van-dialog confirm-button-color="#b4282d" id="van-dialog" />

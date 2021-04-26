@@ -1,0 +1,7 @@
+/* pages/goodsHelp/helpList/helpList.wxss */
+.zmall-home-search-tab {
+  margin-bottom: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}

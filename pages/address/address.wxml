@@ -1,0 +1,24 @@
+<!--pages/me/address/address.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<view class='container'>
+  <view class="item" wx:for="{{list}}" wx:key="" wx:for-index="index"
+    data-address='{{item.addrDetail}}{{item.doorCard}}' data-name='{{item.userName}}' data-phone='{{item.userPhone}}'
+    data-id='{{item.addressId}}' bindtap='select'>
+
+    <text class='address'>{{item.addrDetail}}{{item.doorCard}}</text>
+    <text class='name'>{{item.userName}}</text>
+    <text class='tel'>{{item.userPhone}}</text>
+    <image class='eidt' src="../img/modify.png" mode="widthFix" data-index='{{index}}' bindtap="edit" />
+
+  </view>
+
+</view>
+
+
+<view class="add" bindtap="addAddre">
+  <image class="left" src="../img/add.png" mode="widthFix" />
+  <view class="text">新增个人地址</view>
+  <image class="right" src="../img/right.png" mode="widthFix" />
+</view>

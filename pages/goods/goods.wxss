@@ -1,0 +1,31 @@
+/* pages/goods/goods.wxss */
+.cur-bar-shop{
+  position: fixed;
+  margin-bottom: 0;
+}
+.zmall-title{
+  font-size:18px;
+  font-weight:500;
+  padding: .5em 0;
+  letter-spacing: 3px;
+}
+.zmall-desc{
+  font-size:15px;
+  letter-spacing: 2rpx;
+}
+.zmall-bgColor{
+  background-color: white;
+}
+.tabbar{
+  background-color: white;
+}
+.seaBox{
+   width: calc(100% - 64rpx);
+    background: #fff;
+    height: 30px;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

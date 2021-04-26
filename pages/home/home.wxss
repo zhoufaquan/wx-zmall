@@ -1,0 +1,85 @@
+
+.card-swiper {
+  height: 200px !important;
+}
+
+
+.cu-bar-outside {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.zmall-positon-top-fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.zmall-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+.zmall-model-item {
+  margin: 0 50px;
+  margin-top: -120px;
+  height: 50px;
+}
+
+.zmall-model-item text {
+  font-size: 36rpx;
+
+}
+
+.zmall-model-item view[class*="cuIcon-"] {
+  font-size: 80rpx;
+}
+
+.zmall-home-search-tab {
+  margin-bottom: 10px;
+}
+
+
+.van-grid-item {
+  width: auto !important;
+  float: none !important;
+}
+
+.zmall-goods-info {
+  width: 100%;
+}
+
+.zmall-goods-desc {
+  background: var(--ghostWhite);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.zmall-goods-desc .zmall-goods-title {
+  width: 50%;
+  padding-left: 10px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.zmall-goods-desc .zmall-goods-price {
+  padding-right: 1px;
+  float: right;
+}
+.van-grid{
+  column-count: 2; 
+  column-gap: 12px;
+}
+.van-grid-item{
+  margin-bottom: 20px;
+  break-inside: avoid; 
+}

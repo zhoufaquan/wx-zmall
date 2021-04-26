@@ -1,0 +1,45 @@
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">求购专区</view>
+</cu-custom>
+<view class="zmall-home-search-tab zmall-position-top-fixed"
+    style="top: {{customBarHeight + 'px'}};">
+<van-search
+  value="{{ value }}" 
+  input-align="center"
+  placeholder="请输入搜索关键词"
+  shape="round"
+  bind:search="onSearch"
+/>
+</view>
+<view class="cu-item shadow" style="margin-top: 60px;">
+  
+    <view class="cu-list menu-avatar comment solids-top" wx:for="{{goodsHelpList}}">
+      <view class="cu-item">
+        <view class="cu-avatar round" style="background-image:url({{userInfo.avatarUrl}});"></view>
+        <view class="content">
+          <view class="text-grey">{{userInfo.nickName}}</view>
+          
+          <view class="text-gray text-content text-df">
+          求购商品： {{item.bgTitle}}
+          </view>
+          <view class="text-gray text-content text-df">
+          联系方式： {{item.telephone}}
+          </view>
+          <view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+            <view class="flex">
+              <view>商品描述：</view>
+              <view class="flex-sub"> {{item.bgDescription}}</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">{{item.createTime}}</view>
+            <view>
+              <text class="cuIcon-appreciatefill text-red"></text>
+              <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

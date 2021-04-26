@@ -1,0 +1,117 @@
+<!--main.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">信工二手数码市场</view>
+</cu-custom>
+<view style="margin-bottom: calc(100rpx + env(safe-area-inset-bottom) / 2)">
+  <van-notice-bar text="{{text}}" left-icon="volume-o" mode="closeable" background="#ecf9ff" color="#1989fa" speed="{{speedValue}}"
+    custom-class="custom-notice-bar" />
+    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" style="margin: 5px" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" bindtap="goodsShow" data-name="{{item.goodsId}}">
+    <image src="{{item.goodsImg}}" mode="aspectFill" ></image>
+  </swiper-item>
+</swiper>
+  <view class="zmall-home-search-tab {{scrollTop > 200? 'zmall-positon-top-fixed': ''}}"
+    style="top: {{customBarHeight + 'px'}};">
+    <van-search
+  value="{{ value }}" 
+  input-align="center"
+  placeholder="请输入搜索关键词"
+  shape="round"
+  bind:search="onSearch"
+/>
+    <van-tabs active="{{tabSelectedName}}" bind:click="onClickTab" color="var(--blue)">
+      <van-tab title="手机" name="1"></van-tab>
+      <van-tab title="电脑" name="2"></van-tab>
+      <van-tab title="耳机" name="3"></van-tab>
+      <van-tab title="平板" name="4"></van-tab>
+    </van-tabs>
+  </view>
+  <van-grid column-num="2"  wx:if="{{tabSelectedName == '1'}}" gutter="{{ 10 }}">
+    <van-grid-item custom-class="radius shadow" use-slot wx:for="{{goods}}" link-type="navigateTo" url="/pages/goods/goods?goodsId={{item.goodsId}}">
+      <view class="zmall-goods-info">
+        <image src="{{item.goodsImg}}" mode="widthFix"></image>
+        <view class="zmall-goods-desc">
+          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+        </view>
+      </view>
+    </van-grid-item>
+  </van-grid>
+  <van-grid column-num="2"  wx:if="{{tabSelectedName == '2'}}" gutter="{{ 10 }}">
+    <van-grid-item custom-class="radius shadow" use-slot wx:for="{{goods}}" link-type="navigateTo" url="/pages/goods/goods?goodsId={{item.goodsId}}">
+      <view class="zmall-goods-info">
+        <image src="{{item.goodsImg}}" mode="widthFix"></image>
+        <view class="zmall-goods-desc">
+          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+        </view>
+      </view>
+    </van-grid-item>
+  </van-grid>
+  <van-grid column-num="2"  wx:if="{{tabSelectedName == '3'}}" gutter="{{ 10 }}">
+    <van-grid-item custom-class="radius shadow" use-slot wx:for="{{goods}}" link-type="navigateTo" url="/pages/goods/goods?goodsId={{item.goodsId}}">
+      <view class="zmall-goods-info">
+        <image src="{{item.goodsImg}}" mode="widthFix"></image>
+        <view class="zmall-goods-desc">
+          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+        </view>
+      </view>
+    </van-grid-item>
+  </van-grid>
+  <van-grid column-num="2"  wx:if="{{tabSelectedName == '4'}}" gutter="{{ 10 }}">
+    <van-grid-item custom-class="radius shadow" use-slot wx:for="{{goods}}" link-type="navigateTo" url="/pages/goods/goods?goodsId={{item.goodsId}}">
+      <view class="zmall-goods-info">
+        <image src="{{item.goodsImg}}" mode="widthFix"></image>
+        <view class="zmall-goods-desc">
+          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+        </view>
+      </view>
+    </van-grid-item>
+  </van-grid>
+</view>
+<view class="cu-bar-outside">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action {{currentNavBarName == 'home' ?  'text-blue': 'text-gray'}}" bindtap="changeNavBar"
+      data-name="home">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+
+    <view class="action add-action {{currentNavBarName == 'publish' ?  'text-blue': 'text-gray'}}"
+      bindtap="changeNavBar" data-name="publish">
+      <button class="cu-btn cuIcon-add shadow {{currentNavBarName == 'publish' ?  'bg-gradual-blue': ''}}"
+        bindtap="showModal" data-target="bottomModal"></button>
+      发布
+    </view>
+
+    <view class="action {{currentNavBarName == 'about' ?  'text-blue': 'text-gray'}}" bindtap="changeNavBar"
+      data-name="about">
+      <view class="cuIcon-myfill">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
+    </view>
+  </view>
+</view>
+<!-- 模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+    <view class="zmall-modal-content">
+      <view class="idle-transfer zmall-model-item text-blue" data-name="idle-transfer" bindtap="onSelectPublish">
+        <view class="cuIcon-presentfill">
+        </view>
+        <text>闲置转让</text>
+      </view>
+      <view class="buying-info zmall-model-item text-purple" data-name="buying-info" bindtap="onSelectPublish">
+        <view class="cuIcon-communityfill">
+        </view>
+        <text>求购信息</text>
+      </view>
+    </view>
+  </view>
+</view>
