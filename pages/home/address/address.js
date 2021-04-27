@@ -19,7 +19,7 @@ Page({
     })
     // 实例化API核心类
     qqmapsdk = new QQMapWX({
-      key: 'FLCBZ-INY3R-UNUWK-WWODA-VYWVV-XZFPN'
+      key: 'BCCBZ-ZKPWJ-UV5FB-FV7JY-UFMI7-GJBJ6'	
     });
   },
   /* 取消 */

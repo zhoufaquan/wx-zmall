@@ -2,13 +2,12 @@
   <view slot="content">信工二手数码市场</view>
 </cu-custom>
 <View class="zmall-bgColor">
-  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true"
-    autoplay="true" interval="5000" duration="500">
+  <swiper class="screen-swiper">
     <swiper-item>
       <image src="{{goods.goodsImg}}" mode="aspectFit"></image>
     </swiper-item>
   </swiper>
-  <van-card style="background-color:white" price="{{goods.goodsPrice}}" origin-price="10" title="{{goods.goodsTitle}}"
+  <van-card style="background-color:white" price="{{goods.goodsPrice}}" origin-price="5999"  title="{{goods.goodsTitle}}"
     title-class="zmall-title" desc-class="zmall-desc" desc="{{goods.descrption}}">
     <view slot="footer">
         <view class="cu-capsule round" >

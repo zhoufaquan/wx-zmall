@@ -1,28 +1,27 @@
 <!--pages/publish/publish.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="content">信工二手数码市场</view>
+  <view slot="content">商品修改</view>
 </cu-custom>
 <view class='top-card'>
 <form bindsubmit="formSubmit">
-  <view class='title'>
-    <input name="goodsTitle" placeholder="物品名称"></input>
-  </view>
+  <view class="cu-form-group margin-top">
+		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">物品名称</view>
+		<input value="{{goods.goodsTitle}}"  name="goodsTitle"></input>
+	</view>
   <van-divider dashed />
   <view class="cu-form-group margin-top">
-		<textarea name="description" maxlength="-1" disabled="{{modalName!=null}}" style=" margin-top: 0px; margin-bottom：0px; height: 50px" placeholder="商品描述"></textarea>
+		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">商品描述</view>
+		<input value="{{goods.descrption}}"  name="description"></input>
 	</view>
   <van-divider dashed />
   <view class="cu-bar bg-white margin-top" style=" margin-top: 0px">
 		<view class="action">
 			图片上传
 		</view>
-		<view class="action" >
-			{{imgList.length}}/1
-		</view>
 	</view>
 	<view class="cu-form-group">
 		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-Imgurl="{{imgList[index]}}">
 				<image src='{{imgList[index]}}' mode='aspectFill'></image>
 				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
 					<text class="cuIcon-close"></text>
@@ -36,35 +35,35 @@
   <van-divider dashed />
 	<view class="cu-form-group margin-top">
 		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">成色</view>
-		<input placeholder="" name="quality"></input>
+		<input value="{{goods.goodsQuality}}" name="quality"></input>
 	</view>
 	<van-divider dashed />
 	<view class="cu-form-group margin-top">
 		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">品牌</view>
-		<input placeholder="" name="brandName"></input>
+		<input value="{{goods.brandName}}" name="brandName"></input>
 	</view>
 	<van-divider dashed />
 	<view class="cu-form-group margin-top">
 		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">分类</view>
-		<input placeholder="" name="className"></input>
+		<input value="{{goods.className}}" name="className"></input>
 	</view>
 	<van-divider dashed />
   <view class="cu-form-group margin-top">
 		<view class="title" style="margin-left: 0rpx;padding-top: 0rpx;">价格</view>
-		<input placeholder="" name="price"></input>
+		<input value="{{goods.goodsPrice}}" name="price"></input>
 	</view>
   <van-divider dashed />
   <view class="cu-form-group margin-top">
 		<view class="title"  style="margin-left: 0rpx;padding-top: 0rpx;">电话</view>
-		<input placeholder="" name="telephone"></input>
+		<input value="{{goods.userTelephone}}" name="telephone"></input>
 	</view>
   <van-divider dashed />
   <view class="padding flex flex-direction">
-  <button class="cu-btn bg-gradual-blue margin-tb-sm lg" form-type='submit'>确认发布</button>
+  <button class="cu-btn bg-gradual-blue margin-tb-sm lg" form-type='submit'>确认修改</button>
   </view>
   <van-divider dashed />
   <view class="padding flex flex-direction">
-  <button class="cu-btn bg-gradual-blue margin-tb-sm lg" form-type='submit'>取消发布</button>
+  <button class="cu-btn bg-gradual-blue margin-tb-sm lg" bindtap="cancleButn">取消修改</button>
   </view>
   <van-divider dashed />
 </form> 

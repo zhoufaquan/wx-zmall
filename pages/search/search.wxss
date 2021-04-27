@@ -19,9 +19,6 @@
 }
 
 .zmall-goods-desc {
-  background: var(--ghostWhite);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   height: 30px;
   line-height: 30px;
 }

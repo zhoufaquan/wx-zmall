@@ -16,8 +16,8 @@
       <view class="zmall-goods-info">
         <image src="{{item.goodsImg}}" mode="widthFix" style="margin-top: 20px"></image>
         <view class="zmall-goods-desc">
-          <text class="zmall-goods-title">{{item.goodsTitle}}</text>
-          <text class="zmall-goods-price">￥{{item.goodsPrice}}</text>
+          <text class="zmall-goods-title text-black">{{item.goodsTitle}}</text>
+          <text class="zmall-goods-price text-red">￥{{item.goodsPrice}}</text>
         </view>
       </view>
     </van-grid-item>

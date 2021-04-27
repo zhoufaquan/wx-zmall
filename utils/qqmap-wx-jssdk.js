@@ -3,7 +3,6 @@
  * 
  * @version 1.2
  * @date 2019-03-06
- * @author v_ylyue@tencent.com
  */
 
 var ERROR_CONF = {

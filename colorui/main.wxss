@@ -83,7 +83,7 @@ label,
 navigator,
 image {
 	box-sizing: border-box;
-
+	
 }
 
 .round {

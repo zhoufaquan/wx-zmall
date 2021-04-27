@@ -1,4 +1,5 @@
 // pages/goodsSell/goodSell.js
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog'
 const app = getApp();
 let API = require("../../api/request")
 Page({
@@ -59,6 +60,25 @@ Page({
         console.log
       }
     })
+  },
+  deleteOrder: function (e) {
+    Dialog.confirm({
+      message: '要删除此订单？'
+    }).then(() => {
+      // on confirm
+      let id = e.currentTarget.dataset.value.id;
+      let data = [];
+      this.data.orderList.forEach(function (v) {
+        if (id != v.id) {
+          data.push(v);
+        }
+      })
+      this.setData({
+        orderList: data
+      })
+    }).catch(() => {
+      // on cancel
+    });
   },
   /**
    * 生命周期函数--监听页面加载

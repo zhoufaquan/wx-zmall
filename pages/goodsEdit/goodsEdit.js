@@ -7,17 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
-    qulity:null,
+    goodsId:null,
+    goodsTitle:null,
+    descrption:null,
+    goodsQuality:null,
     className:null,
     brandName:null,
+    goodsPrice:null,
+    userTelephone:null,
     textareaAValue:'',
     imgList: [],
-    index: null,
-    index1: null,
-    index2: null,
     modalName: null,
     wxOpenId: null,
+    goodsId:null,
+    goods:[],
     goodsId:null
     
   },
@@ -26,30 +29,7 @@ Page({
       textareaAValue: e.detail.value
     })
   },
-  // PickerChange(e) {
-  //   console.log(e);
-  //   this.setData({
-  //     index: e.detail.value,
-  //     qulity:picker1[index]
-  //   })
-  //   console.log(this.data.qulity)
-  // },
-  // PickerChange1(e) {
-  //   console.log(e);
-  //   this.setData({
-  //     index1: e.detail.value,
-  //     className:picker1[index1]
-  //   })
-  //   console.log(this.data.className)
-  // },
-  // PickerChange2(e) {
-  //   console.log(e);
-  //   this.setData({
-  //     index2: e.detail.value,
-  //     brandName:picker2[index2]
-  //   })
-  //   console.log(this.data.brandName)
-  // },
+  
   ChooseImage() {
     wx.chooseImage({
       count: 4, //默认9
@@ -94,7 +74,6 @@ Page({
     console.log(e)
        var that = this
        var value = e.detail.value
-       console.log(that.data.imgList)
     console.log("wxOpenId="+ that.data.wxOpenId+
         " description="+value.description+
         "brandName="+value.brandName+
@@ -103,15 +82,12 @@ Page({
         "quality="+value.quality+
         "price="+value.price+
         "telephone="+value.telephone)
-    // wx.showLoading({
-    //   title:'发布中ing...',
-    //   mask:true
-    // });
+      console.log(that.data.imgList)
     wx.request({
-      url: `${API.main}/goods/publish`,
+      url:`${API.main}/goods/goodsEdit`,
       method:'POST',
       data:{
-       wxOpenId:that.data.wxOpenId,
+       goodsId:that.data.goodsId,
        goodsTitle:value.goodsTitle,
        description:value.description,
        quality:value.quality,
@@ -122,22 +98,40 @@ Page({
        imgUrl:that.data.imgList,
       },
       success(res){
-       console.log(res.data)
-       that.setData({
-        goodsId: res.data
-      })
-      
+        console.log(res)
        wx.navigateTo({
          url: '../home/home',
        })
       }
     })
   },
+  cancleButn(){
+    wx.redirectTo({
+      url: '../myPosted/myPosted',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      goodsId: options.goodsId
+    });
+    let that = this
+    //将url存入数组
+    wx.request({
+      url: `${API.main}/goods/get/${options.goodsId}`,
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          goods: res.data,
+          goodsId: res.data.goodsId,
+          imgList: that.data.imgList.concat(res.data.goodsImg)
+        })
+      
+      }
+    })
   },
 
   /**
@@ -151,9 +145,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      wxOpenId: app.globalData.wxOpenId
-    });
+    
   },
 
   /**

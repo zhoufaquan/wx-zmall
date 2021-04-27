@@ -52,8 +52,13 @@ Page({
     })
   },
   editGoods(e){
-    console.log(e)
+    console.log(e.currentTarget.dataset.value.goodsId)
+    wx.navigateTo({
+      url:  '../goodsEdit/goodsEdit?goodsId='+e.currentTarget.dataset.value.goodsId,
+    })
+    
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

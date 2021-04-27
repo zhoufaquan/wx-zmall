@@ -94,7 +94,6 @@
     <view class="action {{currentNavBarName == 'about' ?  'text-blue': 'text-gray'}}" bindtap="changeNavBar"
       data-name="about">
       <view class="cuIcon-myfill">
-        <view class="cu-tag badge"></view>
       </view>
       我的
     </view>
